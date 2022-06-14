@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const App = () => {
-    return <h1>Hlelo</h1>;
+    return <h1 className='text-3xl font-light underline'>Hlelo</h1>;
 };
