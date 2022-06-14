@@ -12,9 +12,7 @@ export const NavLink = (props: LinkProps) => {
                 match
                     ? "outline-green-500 dark:outline-green-500 text-green-500 outline-2 hover:outline-green-500 hover:text-green-500"
                     : "outline-black dark:outline-white"
-            } outline-black outline-1 p-2 mb-2 hover:outline-red-500 dark:outline-white ${
-                props.className
-            }`}
+            } outline-1 p-2 mb-2 hover:outline-red-500 ${props.className}`}
         />
     );
 };

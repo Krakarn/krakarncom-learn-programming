@@ -2,6 +2,23 @@ import React from "react";
 import { LinkProps } from "react-router-dom";
 import { Link } from "./Link";
 
-export const InlineLink = (props: LinkProps) => (
-    <Link {...props} className={`${props.className} text-green-500`}></Link>
-);
+type InlineLinkProps = LinkProps & {
+    external?: boolean;
+};
+
+export const InlineLink = ({ to, ...props }: InlineLinkProps) =>
+    props.external ? (
+        <a
+            {...props}
+            href={to as string}
+            className={`${props.className} text-green-500`}
+        >
+            {props.children}
+        </a>
+    ) : (
+        <Link
+            to={to}
+            {...props}
+            className={`${props.className} text-green-500`}
+        />
+    );

@@ -15,22 +15,26 @@ export const Toolbox = () => {
                     needs their tools.
                 </Paragraph>
                 <Paragraph>
-                    The toolbox is a collection of tools that a developer can
-                    use to learn how to program.
-                </Paragraph>
-                <Paragraph>
                     Here are the tools we will be using in this course:
                 </Paragraph>
                 <ul className="text-xl list-inside list-disc mb-10">
                     <li>
                         Code editor:{" "}
-                        <InlineLink to="https://code.visualstudio.com/download">
+                        <InlineLink
+                            to="https://code.visualstudio.com/download"
+                            external={true}
+                            target="_blank"
+                        >
                             Visual Studio Code
                         </InlineLink>
                     </li>
                     <li>
                         Programming language runtime (choose the LTS version):{" "}
-                        <InlineLink to="https://nodejs.org/en/download/">
+                        <InlineLink
+                            to="https://nodejs.org/en/download/"
+                            external={true}
+                            target="_blank"
+                        >
                             Node.js
                         </InlineLink>
                     </li>
