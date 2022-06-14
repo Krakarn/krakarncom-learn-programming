@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
+    "start": "vite ./src",
+    "build": "vite build --outDir .. ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
