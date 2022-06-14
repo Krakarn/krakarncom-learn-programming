@@ -5,6 +5,7 @@ import { App } from "./App";
 import { GettingStarted } from "./content/intro/GettingStarted";
 import { Toolbox } from "./content/intro/Toolbox";
 import "./index.css";
+import { NotFound } from "./NotFound";
 
 const run = async () => {
     const root = document.getElementById("root");
@@ -18,6 +19,7 @@ const run = async () => {
                     element={<GettingStarted />}
                 />
                 <Route path="intro/toolbox" element={<Toolbox />} />
+                <Route path="*" element={<NotFound />}></Route>
             </Routes>
         </BrowserRouter>
     );
