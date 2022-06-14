@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "vite ./src",
-    "build": "vite build --outDir .. ./src",
+    "build": "vite build --outDir .. ./src && cp ./index.html ./404.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
