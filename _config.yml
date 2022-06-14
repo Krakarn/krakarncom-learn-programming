@@ -1,0 +1,5 @@
+safe: true
+plugins:
+  - jekyll-redirect-from
+whitelist:
+  - jekyll-redirect-from
