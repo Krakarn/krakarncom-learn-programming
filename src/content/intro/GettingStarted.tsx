@@ -8,7 +8,7 @@ import { Paragraph } from "../../components/Paragraph";
 export const GettingStarted = () => {
     return (
         <Page>
-            <PageHeader>Learn Programming</PageHeader>
+            <PageHeader>Getting Started</PageHeader>
             <PageContent>
                 <Paragraph>
                     You will need a few things to get started with programming.

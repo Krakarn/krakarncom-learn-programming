@@ -11,7 +11,7 @@ export const InlineLink = ({ to, ...props }: InlineLinkProps) =>
         <a
             {...props}
             href={to as string}
-            className={`${props.className} text-green-500`}
+            className={`${props.className} text-blue-400`}
         >
             {props.children}
         </a>

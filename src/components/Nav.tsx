@@ -9,6 +9,10 @@ export const Nav = () => {
                 <NavLink to="/intro/getting-started">Getting Started</NavLink>
                 <NavLink to="/intro/toolbox">Toolbox</NavLink>
             </NavSection>
+            <NavSection label="Project" base="/project">
+                <NavLink to="/project/root-folder">Root Folder</NavLink>
+                <NavLink to="/project/initial-files">Initial Files</NavLink>
+            </NavSection>
             <NavSection label="Variables" base="/variables">
                 <NavLink to="">Coming Soon</NavLink>
             </NavSection>

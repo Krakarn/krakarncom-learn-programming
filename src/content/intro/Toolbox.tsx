@@ -8,7 +8,7 @@ import { Paragraph } from "../../components/Paragraph";
 export const Toolbox = () => {
     return (
         <Page>
-            <PageHeader>Learn Programming</PageHeader>
+            <PageHeader>Toolbox</PageHeader>
             <PageContent>
                 <Paragraph>
                     To be able to program efficiently and sanely, a developer
@@ -17,32 +17,35 @@ export const Toolbox = () => {
                 <Paragraph>
                     Here are the tools we will be using in this course:
                 </Paragraph>
-                <ul className="text-xl list-inside list-disc mb-10">
-                    <li>
-                        Code editor:{" "}
-                        <InlineLink
-                            to="https://code.visualstudio.com/download"
-                            external={true}
-                            target="_blank"
-                        >
-                            Visual Studio Code
-                        </InlineLink>
-                    </li>
-                    <li>
-                        Programming language runtime (choose the LTS version):{" "}
-                        <InlineLink
-                            to="https://nodejs.org/en/download/"
-                            external={true}
-                            target="_blank"
-                        >
-                            Node.js
-                        </InlineLink>
-                    </li>
-                </ul>
+                <Paragraph>
+                    <ul className="text-xl list-inside list-disc">
+                        <li>
+                            Code editor:{" "}
+                            <InlineLink
+                                to="https://code.visualstudio.com/download"
+                                external={true}
+                                target="_blank"
+                            >
+                                Visual Studio Code
+                            </InlineLink>
+                        </li>
+                        <li>
+                            Programming language runtime (choose the LTS
+                            version):{" "}
+                            <InlineLink
+                                to="https://nodejs.org/en/download/"
+                                external={true}
+                                target="_blank"
+                            >
+                                Node.js
+                            </InlineLink>
+                        </li>
+                    </ul>
+                </Paragraph>
                 <Paragraph>
                     Once you have downloaded and installed the tools, you can
-                    head over to the <InlineLink to="">next section</InlineLink>{" "}
-                    (coming soon) .
+                    head over to the{" "}
+                    <InlineLink to="/project">next section</InlineLink>.
                 </Paragraph>
             </PageContent>
         </Page>
