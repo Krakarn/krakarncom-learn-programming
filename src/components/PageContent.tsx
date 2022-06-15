@@ -4,7 +4,7 @@ export const PageContent = (props: HTMLProps<HTMLDivElement>) => {
     return (
         <div
             {...props}
-            className={`${props.className} flex flex-col flex-grow w-full pl-5 pt-5 bg-white dark:bg-slate-600`}
+            className={`${props.className} flex flex-col flex-grow w-full p-5 bg-white dark:bg-slate-600`}
         />
     );
 };

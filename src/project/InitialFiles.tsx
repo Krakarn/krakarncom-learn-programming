@@ -5,6 +5,7 @@ import { Page } from "../components/Page";
 import { PageContent } from "../components/PageContent";
 import { PageHeader } from "../components/PageHeader";
 import { Paragraph } from "../components/Paragraph";
+import { TerminalCommand } from "../components/TerminalCommand";
 
 export const InitialFiles = () => (
     <Page>
@@ -39,6 +40,27 @@ export const InitialFiles = () => (
                 We won't be using third-party packages for now, but we will use{" "}
                 <Highlight>npm</Highlight> to create the initial JavaScript
                 project files.
+            </Paragraph>
+            <Paragraph>
+                Run this command in the terminal to{" "}
+                <Highlight>create the initial files</Highlight> (make sure to cd
+                to the project folder first):
+                <TerminalCommand>npm init -y</TerminalCommand>
+            </Paragraph>
+            <Paragraph>
+                After running the command, you will see a file named{" "}
+                <Highlight>
+                    <code>package.json</code>
+                </Highlight>{" "}
+                created in the project folder. This is the project file and it
+                contains information about the project.
+            </Paragraph>
+            <Paragraph>
+                You are now ready to start{" "}
+                <InlineLink to="/project/hello-world">
+                    creating JavaScript files
+                </InlineLink>{" "}
+                in your project.
             </Paragraph>
         </PageContent>
     </Page>

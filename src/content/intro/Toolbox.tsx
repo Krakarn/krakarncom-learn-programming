@@ -45,7 +45,10 @@ export const Toolbox = () => {
                 <Paragraph>
                     Once you have downloaded and installed the tools, you can
                     head over to the{" "}
-                    <InlineLink to="/project">next section</InlineLink>.
+                    <InlineLink to="/project/root-folder">
+                        next section
+                    </InlineLink>
+                    .
                 </Paragraph>
             </PageContent>
         </Page>
