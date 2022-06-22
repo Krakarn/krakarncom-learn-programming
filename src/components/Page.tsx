@@ -4,15 +4,17 @@ import { Nav } from "./Nav";
 
 export const Page = ({ children }: PropsWithChildren) => {
     return (
-        <div className="h-full bg-slate-200 dark:bg-slate-800 dark:text-yellow-50 flex">
+        <div className="min-h-full dark:text-yellow-50 flex">
             <Nav className="min-w-fit" />
-            <div className="flex flex-col flex-grow items-center justify-center">
-                <Link to="/">
-                    <h1 className="text-6xl font-light underline p-8">
+            <div className="bg-white dark:bg-slate-600 flex flex-col flex-grow items-center content-center justify-start">
+                <Link to="/" className="bg-slate-200 dark:bg-slate-800 w-full">
+                    <h1 className="text-6xl font-light underline p-8 w-full text-center">
                         Learn Programming
                     </h1>
                 </Link>
-                {children}
+                <div className="w-full flex content-center items-center flex-col overflow-y-auto">
+                    <div className="flex flex-col max-w-5xl">{children}</div>
+                </div>
             </div>
         </div>
     );

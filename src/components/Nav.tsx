@@ -17,7 +17,13 @@ export const Nav = ({ className }: { className: string }) => {
                 <NavLink to="/project/hello-world">Hello World</NavLink>
             </NavSection>
             <NavSection label="Variables" base="/variables">
-                <NavLink to="">Coming Soon</NavLink>
+                <NavLink to="/variables/constants">Constants</NavLink>
+                <NavLink to="/variables/mutables">Mutables</NavLink>
+            </NavSection>
+            <NavSection label="Data Types" base="/data-types">
+                <NavLink to="/data-types/intro">Data Types</NavLink>
+                <NavLink to="/data-types/numbers">Numbers</NavLink>
+                <NavLink to="/data-types/strings">Strings</NavLink>
             </NavSection>
         </nav>
     );

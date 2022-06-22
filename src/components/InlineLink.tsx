@@ -6,8 +6,8 @@ type InlineLinkProps = LinkProps & {
     external?: boolean;
 };
 
-export const InlineLink = ({ to, ...props }: InlineLinkProps) =>
-    props.external ? (
+export const InlineLink = ({ to, external, ...props }: InlineLinkProps) =>
+    external ? (
         <a
             {...props}
             href={to as string}
