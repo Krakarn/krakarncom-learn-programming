@@ -40,8 +40,6 @@ export const Tooltip = ({ anchor, children }: TooltipProps) => {
         return () => clearInterval(timer);
     }, [divRef.current]);
 
-    console.log("isOffBottom", isOffBottom, window.innerHeight, topOrBottom);
-
     return (
         <div className="relative inline">
             <div
