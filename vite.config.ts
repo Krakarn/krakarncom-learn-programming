@@ -4,7 +4,10 @@ import monacoEditorPlugin from "vite-plugin-monaco-editor";
 export default defineConfig({
     base: "/krakarncom-learn-programming/",
     plugins: [
-        monacoEditorPlugin(),
+        monacoEditorPlugin({
+            base: 'krakarncom-learn-programming',
+            languageWorkers: ['typescript', "editorWorkerService"],
+        }),
     ],
     build: {
         rollupOptions: {
