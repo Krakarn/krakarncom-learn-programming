@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "vite --config ./vite.config.ts ./src",
-    "prebuild": "rimraf ./docs",
+    "prebuild": "cp ./docs/CNAME ./CNAME_ && rimraf ./docs",
     "build": "vite build --config ./vite.config.ts --outDir ../docs ./src",
-    "postbuild": "cp ./docs/index.html ./docs/404.html",
+    "postbuild": "cp ./docs/index.html ./docs/404.html && move-file ./CNAME_ ./docs/CNAME",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
