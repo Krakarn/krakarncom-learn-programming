@@ -12,7 +12,7 @@ export const Page = ({ children }: PropsWithChildren) => {
                         Learn Programming
                     </h1>
                 </Link>
-                <div className="w-full flex content-center items-center flex-col overflow-y-auto">
+                <div className="w-full flex content-center items-center flex-col overflow-y-auto flex-grow">
                     <div className="flex flex-col max-w-5xl">{children}</div>
                 </div>
             </div>

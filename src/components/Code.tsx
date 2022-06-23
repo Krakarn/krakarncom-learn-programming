@@ -10,6 +10,12 @@ import { TerminalOutput } from "./TerminalOutput";
 import { Highlight } from "./Highlight";
 import hljs from "highlight.js";
 
+let c = 0;
+
+monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
+    ...monaco.languages.typescript.javascriptDefaults.getCompilerOptions(),
+});
+
 type CodeProps = {
     children: string[] | string;
     hideOutput?: boolean;
@@ -17,16 +23,16 @@ type CodeProps = {
 };
 
 export const Code = ({ children, hideOutput, noEditor }: CodeProps) => {
-    const containerRef = useRef(null);
-    const codeRef = useRef(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const codeRef = useRef<HTMLElement>(null);
     const defaultContents = useMemo(
         () => (typeof children === "string" ? children : children.join("")),
         [children]
     );
-    const [contents, setContents] = useState(defaultContents);
     const [codeInnerHTML, setCodeInnerHTML] = useState("");
     const [height, setHeight] = useState(0);
     const [output, setOutput] = useState<string[]>([]);
+    const [editor, setEditor] = useState<monaco.editor.IStandaloneCodeEditor>();
 
     const evaluateOutput = useCallback(
         (code: string | undefined) => {
@@ -62,17 +68,34 @@ export const Code = ({ children, hideOutput, noEditor }: CodeProps) => {
         if (noEditor || !containerRef.current) return;
 
         const editor = monaco.editor.create(containerRef.current, {
-            value: contents,
+            value: defaultContents,
             language: "javascript",
             theme: "vs-dark",
             lineNumbers: "on",
             readOnly: false,
+            automaticLayout: true,
         });
 
-        setHeight(editor.getContentHeight());
+        setEditor(editor);
+
+        let _c = ++c;
+
+        const initialHeight = editor.getContentHeight();
+        let pHeight = initialHeight;
+        let hasChangedModelContent = false;
+        setHeight(initialHeight);
+
+        editor.onDidChangeModelContent((e) => {
+            hasChangedModelContent = true;
+        });
 
         editor.onDidContentSizeChange((e) => {
-            setHeight(e.contentHeight);
+            const heightDifference = e.contentHeight - pHeight;
+            pHeight = e.contentHeight;
+            if (!hasChangedModelContent || heightDifference === 0) return;
+            if (containerRef.current?.style.height !== "160px")
+                editor.setScrollTop(0);
+            setHeight(160);
         });
 
         if (!hideOutput) {

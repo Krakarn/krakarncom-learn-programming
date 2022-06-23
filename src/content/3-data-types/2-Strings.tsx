@@ -38,9 +38,9 @@ export const Strings = () => (
                 Here we have <Highlight>string interpolation</Highlight>. It is
                 another way of concatenating expressions into a string:
                 <Code>
-                    const name = "Developer Programmer";{"\n"}
-                    const age = 45;{"\n"}console.log(`Hi, my name is {"${name}"}{" "}
-                    and I am {"${age}"} years old.`);
+                    const myName = "Developer Programmer";{"\n"}
+                    const age = 45;{"\n"}console.log(`Hi, my name is{" "}
+                    {"${myName}"} and I am {"${age}"} years old.`);
                 </Code>
                 Note: You have to use the backtick character{" "}
                 <InlineCode>`</InlineCode> to use string interpolation.
