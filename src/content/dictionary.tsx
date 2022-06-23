@@ -9,7 +9,7 @@ const assign = (
         <Paragraph>An identifier is assigned to a value.</Paragraph>
         <Paragraph>
             Examples:
-            <Code>
+            <Code noEditor>
                 let x = 1;{"\n"}x = 3;{"\n"}const text = "Hello!";
             </Code>
         </Paragraph>
@@ -21,7 +21,7 @@ const constantVariable = (
         <Paragraph>A container of something that cannot be changed.</Paragraph>
         <Paragraph>
             Examples:
-            <Code>const x = 5;{"\n"}const y = x + 3;</Code>
+            <Code noEditor>const x = 5;{"\n"}const y = x + 3;</Code>
         </Paragraph>
     </>
 );
@@ -31,7 +31,7 @@ const define = (
         <Paragraph>Creating a new variable or function.</Paragraph>
         <Paragraph>
             Examples:
-            <Code>
+            <Code noEditor>
                 let a;{"\n"}let b;{"\n"}const x = 1;{"\n"}const f = () {"=>"}{" "}
                 console.log("Hello!");
             </Code>
@@ -46,7 +46,7 @@ const expression = (
         </Paragraph>
         <Paragraph>
             Examples:
-            <Code>
+            <Code noEditor>
                 1 + 2 + 3; // Evaluates to 6{"\n"}console.log(1 + 2 + 3); //
                 Evaluates to 6, then logs it to the console{"\n"}
                 const x = 1 + 2 + 3; // Assigns 6 to x{"\n"}
@@ -65,7 +65,7 @@ const identifier = (
         </Paragraph>
         <Paragraph>
             Examples in JavaScript:
-            <Code>
+            <Code noEditor>
                 let a; // Identifier of this variable is a.{"\n"}const
                 myConstant = 1;{"\n"}let this_is_a_validIdentifier_12345;
             </Code>
@@ -96,7 +96,7 @@ const literal = (
         <Paragraph>
             Examples in JavaScript: <InlineCode>1</InlineCode>{" "}
             <InlineCode>"Hello!"</InlineCode> <InlineCode>true</InlineCode>.
-            <Code>
+            <Code noEditor>
                 const x = 1; // This constant is assigned the literal value 1.
                 {"\n"}const y = x; // This constant is assigned the value of the
                 variable x. Not a literal value.
@@ -112,7 +112,7 @@ const logging = (
         <Paragraph>Logging a value to the console.</Paragraph>
         <Paragraph>
             Examples:
-            <Code>
+            <Code noEditor>
                 console.log("Hello, world!");{"\n"}console.log(5 + 3);{"\n"}
                 const greeting = "Hello there!";{"\n"}console.log(greeting);
             </Code>
@@ -142,8 +142,8 @@ const value = (
         <Paragraph>The value that an identifier is assigned to.</Paragraph>
         <Paragraph>
             Examples:
-            <Code>let a = 1; // Value of this variable is 1.</Code>
-            <Code>
+            <Code noEditor>let a = 1; // Value of this variable is 1.</Code>
+            <Code noEditor>
                 const x = 1;{"\n"}const y = x + 3; // Value of this variable is
                 4.
             </Code>
@@ -156,7 +156,7 @@ const variable = (
         <Paragraph>A container.</Paragraph>
         <Paragraph>
             Examples:
-            <Code>
+            <Code noEditor>
                 const a = 3;{"\n"}let x = 5;{"\n"}let y = x - 2;
             </Code>
         </Paragraph>

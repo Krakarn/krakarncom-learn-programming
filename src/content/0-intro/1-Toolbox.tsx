@@ -43,10 +43,10 @@ export const Toolbox = () => {
                     </ul>
                 </Paragraph>
                 <Paragraph>
-                    Once you have downloaded and installed the tools, you can
-                    head over to the{" "}
+                    Once you have downloaded and installed the tools, you are
+                    ready to{" "}
                     <InlineLink to="/project/root-folder">
-                        next section
+                        create a new project
                     </InlineLink>
                     .
                 </Paragraph>

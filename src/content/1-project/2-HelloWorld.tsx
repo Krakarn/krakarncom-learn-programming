@@ -45,8 +45,9 @@ export const HelloWorld = () => (
                 JavaScript and executed it on your local machine!
             </Paragraph>
             <Paragraph>
-                You may now go ahead to the{" "}
-                <InlineLink to="/variables/constants">next section</InlineLink>.
+                Next, we will start to get into the meat of programming. First
+                up is{" "}
+                <InlineLink to="/variables/constants">variables</InlineLink>.
             </Paragraph>
         </PageContent>
     </Page>
