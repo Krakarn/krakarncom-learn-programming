@@ -23,7 +23,7 @@ export const Code = ({ children, hideOutput, noEditor }: CodeProps) => {
         () =>
             typeof children === "string"
                 ? children.trim()
-                : children.map((x) => x.trim()).join(""),
+                : children.join("").trim(),
         [children]
     );
     const [codeInnerHTML, setCodeInnerHTML] = useState("");
