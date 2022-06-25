@@ -34,7 +34,7 @@ export const Mutables = () => (
             </Paragraph>
             <Paragraph>
                 Next, we will look at{" "}
-                <InlineLink to="/data-types/intro">data types</InlineLink>.
+                <InlineLink to="/data-types/intro#top">data types</InlineLink>.
             </Paragraph>
         </PageContent>
     </Page>

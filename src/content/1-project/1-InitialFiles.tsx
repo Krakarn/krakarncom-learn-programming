@@ -57,7 +57,7 @@ export const InitialFiles = () => (
             </Paragraph>
             <Paragraph>
                 You are now ready to start{" "}
-                <InlineLink to="/project/hello-world">
+                <InlineLink to="/project/hello-world#top">
                     creating JavaScript files
                 </InlineLink>{" "}
                 in your project.

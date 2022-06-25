@@ -47,7 +47,8 @@ export const HelloWorld = () => (
             <Paragraph>
                 Next, we will start to get into the meat of programming. First
                 up is{" "}
-                <InlineLink to="/variables/constants">variables</InlineLink>.
+                <InlineLink to="/variables/constants#top">variables</InlineLink>
+                .
             </Paragraph>
         </PageContent>
     </Page>

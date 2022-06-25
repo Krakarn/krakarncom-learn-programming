@@ -48,8 +48,8 @@ export const DataTypes = () => (
             </Paragraph>
             <Paragraph>
                 Next, we will look at{" "}
-                <InlineLink to="/data-types/numbers">numbers</InlineLink> and
-                what you can do with them.
+                <InlineLink to="/data-types/numbers#top">numbers</InlineLink>{" "}
+                and what you can do with them.
             </Paragraph>
         </PageContent>
     </Page>

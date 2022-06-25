@@ -45,7 +45,7 @@ export const Toolbox = () => {
                 <Paragraph>
                     Once you have downloaded and installed the tools, you are
                     ready to{" "}
-                    <InlineLink to="/project/root-folder">
+                    <InlineLink to="/project/root-folder#top">
                         create a new project
                     </InlineLink>
                     .

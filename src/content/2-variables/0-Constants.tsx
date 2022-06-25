@@ -82,7 +82,7 @@ export const Constants = () => (
             </Paragraph>
             <Paragraph>
                 Next, we will look at{" "}
-                <InlineLink to="/variables/mutables">
+                <InlineLink to="/variables/mutables#top">
                     mutable variables
                 </InlineLink>
                 .

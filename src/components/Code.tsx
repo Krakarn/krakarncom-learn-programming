@@ -10,12 +10,6 @@ import { TerminalOutput } from "./TerminalOutput";
 import { Highlight } from "./Highlight";
 import hljs from "highlight.js";
 
-let c = 0;
-
-monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
-    ...monaco.languages.typescript.javascriptDefaults.getCompilerOptions(),
-});
-
 type CodeProps = {
     children: string[] | string;
     hideOutput?: boolean;
@@ -26,13 +20,15 @@ export const Code = ({ children, hideOutput, noEditor }: CodeProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const codeRef = useRef<HTMLElement>(null);
     const defaultContents = useMemo(
-        () => (typeof children === "string" ? children : children.join("")),
+        () =>
+            typeof children === "string"
+                ? children.trim()
+                : children.map((x) => x.trim()).join(""),
         [children]
     );
     const [codeInnerHTML, setCodeInnerHTML] = useState("");
     const [height, setHeight] = useState(0);
     const [output, setOutput] = useState<string[]>([]);
-    const [editor, setEditor] = useState<monaco.editor.IStandaloneCodeEditor>();
 
     const evaluateOutput = useCallback(
         (code: string | undefined) => {
@@ -61,6 +57,9 @@ export const Code = ({ children, hideOutput, noEditor }: CodeProps) => {
         el.innerHTML = defaultContents;
         hljs.highlightElement(el);
         setCodeInnerHTML(el.innerHTML);
+
+        if (hideOutput) return;
+
         evaluateOutput(defaultContents);
     }, [noEditor, codeRef.current]);
 
@@ -74,11 +73,11 @@ export const Code = ({ children, hideOutput, noEditor }: CodeProps) => {
             lineNumbers: "on",
             readOnly: false,
             automaticLayout: true,
+            scrollBeyondLastLine: false,
+            scrollbar: {
+                alwaysConsumeMouseWheel: false,
+            },
         });
-
-        setEditor(editor);
-
-        let _c = ++c;
 
         const initialHeight = editor.getContentHeight();
         let pHeight = initialHeight;

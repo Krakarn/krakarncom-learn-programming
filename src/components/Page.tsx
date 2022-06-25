@@ -4,7 +4,7 @@ import { Nav } from "./Nav";
 
 export const Page = ({ children }: PropsWithChildren) => {
     return (
-        <div className="min-h-full dark:text-yellow-50 flex">
+        <div id="top" className="min-h-full dark:text-yellow-50 flex">
             <Nav className="min-w-fit" />
             <div className="bg-white dark:bg-slate-600 flex flex-col flex-grow items-center content-center justify-start">
                 <Link to="/" className="bg-slate-200 dark:bg-slate-800 w-full">

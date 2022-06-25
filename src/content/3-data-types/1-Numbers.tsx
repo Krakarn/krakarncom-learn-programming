@@ -8,6 +8,7 @@ import { PageContent } from "../../components/PageContent";
 import { PageHeader } from "../../components/PageHeader";
 import { PageSectionHeader } from "../../components/PageSectionHeader";
 import { Paragraph } from "../../components/Paragraph";
+import { referenceWarning } from "../reference-warning";
 
 export const Numbers = () => (
     <Page>
@@ -31,8 +32,9 @@ export const Numbers = () => (
             </Paragraph>
             <PageSectionHeader>Algebraic Operations</PageSectionHeader>
             <Paragraph>
-                You can do addition, subtraction, multiplication and division as
-                a built-in feature of the language:
+                Using <Highlight>operators</Highlight>, you can do addition,
+                subtraction, multiplication and division as a built-in feature
+                of the language:
                 <Code>
                     const x = 5 + 3 - 1;{"\n"}const y = x * 2;{"\n"}const z = y
                     / 2;{"\n"}
@@ -115,8 +117,31 @@ export const Numbers = () => (
                 of different types equal.
             </Paragraph>
             <Paragraph>
+                Another example:
+                <Code>
+                    {`let health = 2;
+const monsterDamage = 2;
+console.log("Are you dead?", health <= 0);
+console.log("You take", monsterDamage, "damage.");
+health -= monsterDamage;
+console.log("Are you dead?", health <= 0);`}
+                </Code>
+            </Paragraph>
+            <PageSectionHeader>Reference</PageSectionHeader>
+            <Paragraph>
+                For a full reference on numbers,{" "}
+                <InlineLink
+                    to="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number"
+                    external
+                    target="_blank"
+                >
+                    click here
+                </InlineLink>
+                . {referenceWarning}
+            </Paragraph>
+            <Paragraph>
                 Next we will look at{" "}
-                <InlineLink to="/data-types/strings">strings</InlineLink>.
+                <InlineLink to="/data-types/strings#top">strings</InlineLink>.
             </Paragraph>
         </PageContent>
     </Page>

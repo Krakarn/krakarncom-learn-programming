@@ -12,6 +12,9 @@ import { Mutables } from "./content/2-variables/1-Mutables";
 import { DataTypes } from "./content/3-data-types/0-DataTypes";
 import { Numbers } from "./content/3-data-types/1-Numbers";
 import { Strings } from "./content/3-data-types/2-Strings";
+import { Booleans } from "./content/3-data-types/3-Booleans";
+import { If } from "./content/4-control-structures/0-if";
+import { For } from "./content/4-control-structures/1-for";
 
 type Section = {
     title: string;
@@ -108,6 +111,27 @@ const book: Book = {
                     title: "Strings",
                     path: "strings",
                     element: <Strings />,
+                },
+                {
+                    title: "Booleans",
+                    path: "booleans",
+                    element: <Booleans />,
+                },
+            ],
+        },
+        {
+            title: "Control Structures",
+            base: "/control-structures",
+            sections: [
+                {
+                    title: "If",
+                    path: "if",
+                    element: <If />,
+                },
+                {
+                    title: "For",
+                    path: "for",
+                    element: <For />,
                 },
             ],
         },

@@ -51,7 +51,7 @@ export const RootFolder = () => (
             </Paragraph>
             <Paragraph>
                 Now that we have a project root folder, we can start{" "}
-                <InlineLink to="/project/initial-files">
+                <InlineLink to="/project/initial-files#top">
                     adding files to build our application
                 </InlineLink>
                 .

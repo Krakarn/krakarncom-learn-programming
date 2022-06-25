@@ -15,8 +15,8 @@ export const GettingStarted = () => {
                 </Paragraph>
                 <Paragraph>
                     First, head over to the{" "}
-                    <InlineLink to="/intro/toolbox">Toolbox</InlineLink> section
-                    to get the tools you need as a developer.
+                    <InlineLink to="/intro/toolbox#top">Toolbox</InlineLink>{" "}
+                    section to get the tools you need as a developer.
                 </Paragraph>
             </PageContent>
         </Page>

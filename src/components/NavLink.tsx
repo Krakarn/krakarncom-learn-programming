@@ -8,10 +8,10 @@ export const NavLink = (props: LinkProps) => {
     return (
         <Link
             {...props}
-            className={`outline ${
+            className={`bg-white dark:bg-slate-600 ${
                 match
-                    ? "outline-green-500 dark:outline-green-500 text-green-500 outline-2 hover:outline-green-500 hover:text-green-500"
-                    : "outline-black dark:outline-white"
+                    ? "outline outline-green-500 dark:outline-green-500 text-green-500 outline-2 hover:outline-green-500 hover:text-green-500"
+                    : ""
             } outline-1 p-2 mb-2 hover:outline-red-500 ${props.className}`}
         />
     );
