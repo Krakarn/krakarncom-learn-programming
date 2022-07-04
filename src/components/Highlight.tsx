@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useMemo } from "react";
-import { dictionary } from "../content/dictionary";
+import { useDictionary } from "@lib";
 import { Tooltip } from "./Tooltip";
 
 type HighlightProps = PropsWithChildren<{
@@ -7,6 +7,8 @@ type HighlightProps = PropsWithChildren<{
 }>;
 
 export const Highlight = ({ dictionaryLabel, children }: HighlightProps) => {
+    const dictionary = useDictionary();
+
     const dictionaryEntry = useMemo(
         () =>
             dictionary[

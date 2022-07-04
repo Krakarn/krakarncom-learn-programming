@@ -1,14 +1,16 @@
 import React from "react";
-import { Code } from "../../components/Code";
-import { Highlight } from "../../components/Highlight";
-import { InlineCode } from "../../components/InlineCode";
-import { InlineLink } from "../../components/InlineLink";
-import { Page } from "../../components/Page";
-import { PageContent } from "../../components/PageContent";
-import { PageHeader } from "../../components/PageHeader";
-import { PageSectionHeader } from "../../components/PageSectionHeader";
-import { Paragraph } from "../../components/Paragraph";
-import { referenceWarning } from "../reference-warning";
+import {
+    Code,
+    InlineCode,
+    Page,
+    PageHeader,
+    PageContent,
+    Paragraph,
+    PageSectionHeader,
+    InlineLink,
+    Highlight,
+} from "@components";
+import { referenceWarning } from "@content/reference-warning";
 
 const TruthTable = ({
     operation,
@@ -233,3 +235,5 @@ console.log(\`\${left} || \${right} === \${result}\`);`}</Code>
         </PageContent>
     </Page>
 );
+
+export default Booleans;

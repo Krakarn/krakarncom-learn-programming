@@ -1,14 +1,18 @@
 import React from "react";
-import { Code } from "../../components/Code";
-import { Highlight } from "../../components/Highlight";
-import { InlineCode } from "../../components/InlineCode";
-import { InlineLink } from "../../components/InlineLink";
-import { Page } from "../../components/Page";
-import { PageContent } from "../../components/PageContent";
-import { PageHeader } from "../../components/PageHeader";
-import { PageSectionHeader } from "../../components/PageSectionHeader";
-import { Paragraph } from "../../components/Paragraph";
-import { referenceWarning } from "../reference-warning";
+import {
+    Page,
+    PageHeader,
+    PageContent,
+    Paragraph,
+    InlineCode,
+    PageSectionHeader,
+    Code,
+    InlineLink,
+    Exercise,
+    BlockyExercise,
+    Highlight,
+} from "@components";
+import { referenceWarning } from "@content/reference-warning";
 
 export const Numbers = () => (
     <Page>
@@ -84,6 +88,70 @@ export const Numbers = () => (
                 <InlineCode>+=</InlineCode>, <InlineCode>-=</InlineCode>,{" "}
                 <InlineCode>*=</InlineCode> and <InlineCode>/=</InlineCode>
             </Paragraph>
+            <Paragraph>
+                <Exercise
+                    saveKey="3-data-types-1-numbers-0"
+                    header="Mutable Numbers"
+                    description={
+                        <>
+                            You are provided three variables,{" "}
+                            <InlineCode>x</InlineCode>,{" "}
+                            <InlineCode>y</InlineCode> and{" "}
+                            <InlineCode>z</InlineCode>.
+                            <ul className="list-decimal list-inside">
+                                <li>
+                                    Set <InlineCode>x</InlineCode> to{" "}
+                                    <InlineCode>x * x</InlineCode>.
+                                </li>
+                                <li>
+                                    Set <InlineCode>y</InlineCode> to{" "}
+                                    <InlineCode>y + x</InlineCode>.
+                                </li>
+                                <li>
+                                    Set <InlineCode>z</InlineCode> to{" "}
+                                    <InlineCode>z + x * y</InlineCode>.
+                                </li>
+                                <li>
+                                    Create a new variable called{" "}
+                                    <InlineCode>w</InlineCode> and set it to{" "}
+                                    <InlineCode>z + y - x</InlineCode>.
+                                </li>
+                            </ul>
+                        </>
+                    }
+                    preCode={`
+let x = 3;
+let y = 10;
+let z = 1;
+`}
+                    postCode={`console.log('x:', x);\nconsole.log('y:', y)\nconsole.log('z:', z)\nconsole.log('w:', w);`}
+                    initialCode={``}
+                    correctCode={`x *= x; y += x; z += x * y; const w = z + y - x;`}
+                    iterations={1}
+                ></Exercise>
+            </Paragraph>
+            <Paragraph>
+                <BlockyExercise
+                    saveKey="3-data-types-1-numbers-1"
+                    header="Blocky"
+                    description={
+                        <>
+                            This is a <Highlight>Blocky Exercise</Highlight>.
+                            The red square is <Highlight>Blocky</Highlight>.
+                            Your goal in a Blocky Exercise is for Blocky to
+                            reach the <Highlight>yellow square</Highlight>.
+                        </>
+                    }
+                    preCode={`
+let x = 0;
+let y = 0;
+`}
+                    postCode={`drawBlocky(x, y, 1, 1);`}
+                    initialCode={``}
+                    correctCode={`x = 1; y = 1;`}
+                    iterations={1}
+                ></BlockyExercise>
+            </Paragraph>
             <PageSectionHeader>Comparative Operations</PageSectionHeader>
             <Paragraph>
                 You can compare numbers with each other, producing a{" "}
@@ -146,3 +214,5 @@ console.log("Are you dead?", health <= 0);`}
         </PageContent>
     </Page>
 );
+
+export default Numbers;

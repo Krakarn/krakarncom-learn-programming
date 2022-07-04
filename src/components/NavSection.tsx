@@ -23,3 +23,5 @@ export const NavSection = ({ label, base, children }: NavSectionProps) => {
         </div>
     );
 };
+
+export default NavSection;

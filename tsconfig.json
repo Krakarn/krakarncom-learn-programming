@@ -7,5 +7,14 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "jsx": "react",
-    }
+        "baseUrl": ".",
+        "paths": {
+            "@components": ["src/components"],
+            "@components/*": ["src/components/*"],
+            "@lib": ["src/lib"],
+            "@lib/*": ["src/lib/*"],
+            "@content": ["src/content"],
+            "@content/*": ["src/content/*"]
+        }
+    },
 }

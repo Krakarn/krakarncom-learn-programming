@@ -1,9 +1,11 @@
 import React from "react";
-import { InlineLink } from "../../components/InlineLink";
-import { Page } from "../../components/Page";
-import { PageContent } from "../../components/PageContent";
-import { PageHeader } from "../../components/PageHeader";
-import { Paragraph } from "../../components/Paragraph";
+import {
+    InlineLink,
+    Page,
+    PageContent,
+    PageHeader,
+    Paragraph,
+} from "@components";
 
 export const Toolbox = () => {
     return (
@@ -54,3 +56,5 @@ export const Toolbox = () => {
         </Page>
     );
 };
+
+export default Toolbox;

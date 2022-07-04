@@ -1,20 +1,26 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Route } from "react-router";
-import { NavLink } from "./components/NavLink";
-import { NavSection } from "./components/NavSection";
-import { GettingStarted } from "./content/0-intro/0-GettingStarted";
-import { Toolbox } from "./content/0-intro/1-Toolbox";
-import { RootFolder } from "./content/1-project/0-RootFolder";
-import { InitialFiles } from "./content/1-project/1-InitialFiles";
-import { HelloWorld } from "./content/1-project/2-HelloWorld";
-import { Constants } from "./content/2-variables/0-Constants";
-import { Mutables } from "./content/2-variables/1-Mutables";
-import { DataTypes } from "./content/3-data-types/0-DataTypes";
-import { Numbers } from "./content/3-data-types/1-Numbers";
-import { Strings } from "./content/3-data-types/2-Strings";
-import { Booleans } from "./content/3-data-types/3-Booleans";
-import { If } from "./content/4-control-structures/0-if";
-import { For } from "./content/4-control-structures/1-for";
+import { DictionaryContext } from "@lib";
+import { dictionary } from "@content";
+const NavLink = React.lazy(() => import("@components/NavLink"));
+const NavSection = React.lazy(() => import("@components/NavSection"));
+const GettingStarted = React.lazy(
+    () => import("@content/0-intro/0-GettingStarted")
+);
+const Toolbox = React.lazy(() => import("@content/0-intro/1-Toolbox"));
+const RootFolder = React.lazy(() => import("@content/1-project/0-RootFolder"));
+const InitialFiles = React.lazy(
+    () => import("@content/1-project/1-InitialFiles")
+);
+const HelloWorld = React.lazy(() => import("@content/1-project/2-HelloWorld"));
+const Constants = React.lazy(() => import("@content/2-variables/0-Constants"));
+const Mutables = React.lazy(() => import("@content/2-variables/1-Mutables"));
+const DataTypes = React.lazy(() => import("@content/3-data-types/0-DataTypes"));
+const Numbers = React.lazy(() => import("@content/3-data-types/1-Numbers"));
+const Strings = React.lazy(() => import("@content/3-data-types/2-Strings"));
+const Booleans = React.lazy(() => import("@content/3-data-types/3-Booleans"));
+const If = React.lazy(() => import("@content/4-control-structures/0-If"));
+const ForLoop = React.lazy(() => import("@content/4-control-structures/1-For"));
 
 type Section = {
     title: string;
@@ -129,20 +135,28 @@ const book: Book = {
                     element: <If />,
                 },
                 {
-                    title: "For",
+                    title: "For Loop",
                     path: "for",
-                    element: <For />,
+                    element: <ForLoop />,
                 },
             ],
         },
     ],
 };
 
+const bookElement = (element: JSX.Element) => (
+    <Suspense>
+        <DictionaryContext.Provider value={dictionary}>
+            {element}
+        </DictionaryContext.Provider>
+    </Suspense>
+);
+
 export const bookRoutes = book.chapters.map((chapter, ci) =>
     chapter.sections.map((section, si) => (
         <Route
             path={getSectionUrl(chapter, si)}
-            element={getSection(book, ci, si).element}
+            element={bookElement(getSection(book, ci, si).element)}
         />
     ))
 );

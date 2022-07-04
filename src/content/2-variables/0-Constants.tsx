@@ -1,14 +1,17 @@
 import React from "react";
-import { Code } from "../../components/Code";
-import { Help } from "../../components/Help";
-import { Highlight } from "../../components/Highlight";
-import { InlineCode } from "../../components/InlineCode";
-import { InlineLink } from "../../components/InlineLink";
-import { Page } from "../../components/Page";
-import { PageContent } from "../../components/PageContent";
-import { PageHeader } from "../../components/PageHeader";
-import { PageSectionHeader } from "../../components/PageSectionHeader";
-import { Paragraph } from "../../components/Paragraph";
+import {
+    Page,
+    PageHeader,
+    PageContent,
+    Paragraph,
+    PageSectionHeader,
+    Code,
+    InlineCode,
+    Help,
+    Exercise,
+    InlineLink,
+    Highlight,
+} from "@components";
 
 export const Constants = () => (
     <Page>
@@ -81,6 +84,38 @@ export const Constants = () => (
                 need to.
             </Paragraph>
             <Paragraph>
+                <Exercise
+                    saveKey="2-variables-0-constants-0"
+                    header="Constant"
+                    description={
+                        <>
+                            Exercise: Define a <Highlight>constant</Highlight>{" "}
+                            variable named <InlineCode>variable</InlineCode>{" "}
+                            with the value{" "}
+                            <InlineCode>"I am a variable."</InlineCode>. Then,
+                            print it to the console.
+                        </>
+                    }
+                    postCode={`
+let success = false;
+try {
+    variable = "This shouldn't happen.";
+} catch (e) {
+    if (e instanceof ReferenceError) throw e;
+    success = true;
+}
+if (!success) {
+    throw new Error("variable is not constant");
+}
+if (variable === "I am a variable") throw new HintError("Did you forget the dot?");
+`}
+                    initialCode={``}
+                    correctCode={`const variable = "I am a variable.";console.log(variable);`}
+                    iterations={1}
+                    hidePostCode
+                ></Exercise>
+            </Paragraph>
+            <Paragraph>
                 Next, we will look at{" "}
                 <InlineLink to="/variables/mutables#top">
                     mutable variables
@@ -90,3 +125,5 @@ export const Constants = () => (
         </PageContent>
     </Page>
 );
+
+export default Constants;

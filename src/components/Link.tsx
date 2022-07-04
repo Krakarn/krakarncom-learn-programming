@@ -1,6 +1,7 @@
 import React from "react";
-import { Link as RRLink, LinkProps } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
+import { HashLink, HashLinkProps } from "react-router-hash-link";
+
+export type LinkProps = HashLinkProps;
 
 export const Link = (props: LinkProps) => {
     return (

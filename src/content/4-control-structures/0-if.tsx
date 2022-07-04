@@ -1,12 +1,14 @@
 import React from "react";
-import { Code } from "../../components/Code";
-import { Highlight } from "../../components/Highlight";
-import { InlineCode } from "../../components/InlineCode";
-import { InlineLink } from "../../components/InlineLink";
-import { Page } from "../../components/Page";
-import { PageHeader } from "../../components/PageHeader";
-import { PageSectionHeader } from "../../components/PageSectionHeader";
-import { Paragraph } from "../../components/Paragraph";
+import {
+    Page,
+    PageHeader,
+    Paragraph,
+    PageSectionHeader,
+    Code,
+    InlineCode,
+    InlineLink,
+    Highlight,
+} from "@components";
 
 export const If = () => (
     <Page>
@@ -111,3 +113,5 @@ if (health >= 3) {
         </Paragraph>
     </Page>
 );
+
+export default If;

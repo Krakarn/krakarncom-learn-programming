@@ -1,13 +1,16 @@
 import React from "react";
-import { Code } from "../../components/Code";
-import { Highlight } from "../../components/Highlight";
-import { InlineLink } from "../../components/InlineLink";
-import { Page } from "../../components/Page";
-import { PageContent } from "../../components/PageContent";
-import { PageHeader } from "../../components/PageHeader";
-import { Paragraph } from "../../components/Paragraph";
-import { TerminalCommand } from "../../components/TerminalCommand";
-import { TerminalOutput } from "../../components/TerminalOutput";
+import {
+    Page,
+    PageHeader,
+    PageContent,
+    Paragraph,
+    Code,
+    TerminalCommand,
+    TerminalOutput,
+    Exercise,
+    InlineLink,
+    Highlight,
+} from "@components";
 
 export const HelloWorld = () => (
     <Page>
@@ -45,6 +48,27 @@ export const HelloWorld = () => (
                 JavaScript and executed it on your local machine!
             </Paragraph>
             <Paragraph>
+                Note: This is an exercise. If you complete the given task the
+                border of the exercise becomes green. You can see the output of
+                your program below the code. The output section can also contain
+                errors or hints, depending on what you type in the code. Your
+                code will be locally saved on this computer, so if you refresh
+                this page the code will not disappear.
+                <Exercise
+                    header="Logging to the Console"
+                    description={
+                        <>
+                            Print "I am beginning my journey to become a
+                            programmer." to the console.
+                        </>
+                    }
+                    saveKey="1-project-2-hello-world-0"
+                    iterations={1}
+                    correctCode="console.log('I am beginning my journey to become a programmer.')"
+                    initialCode=""
+                />
+            </Paragraph>
+            <Paragraph>
                 Next, we will start to get into the meat of programming. First
                 up is{" "}
                 <InlineLink to="/variables/constants#top">variables</InlineLink>
@@ -53,3 +77,5 @@ export const HelloWorld = () => (
         </PageContent>
     </Page>
 );
+
+export default HelloWorld;

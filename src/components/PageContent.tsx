@@ -1,4 +1,4 @@
-import React, { HTMLProps, PropsWithChildren } from "react";
+import React, { HTMLProps } from "react";
 
 export const PageContent = (props: HTMLProps<HTMLDivElement>) => {
     return (

@@ -1,10 +1,12 @@
 import React from "react";
-import { Highlight } from "../../components/Highlight";
-import { InlineLink } from "../../components/InlineLink";
-import { Page } from "../../components/Page";
-import { PageContent } from "../../components/PageContent";
-import { PageHeader } from "../../components/PageHeader";
-import { Paragraph } from "../../components/Paragraph";
+import {
+    Page,
+    PageHeader,
+    PageContent,
+    Paragraph,
+    Highlight,
+    InlineLink,
+} from "@components";
 
 export const RootFolder = () => (
     <Page>
@@ -59,3 +61,5 @@ export const RootFolder = () => (
         </PageContent>
     </Page>
 );
+
+export default RootFolder;

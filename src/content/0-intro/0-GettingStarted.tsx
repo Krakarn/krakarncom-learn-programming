@@ -1,9 +1,11 @@
 import React from "react";
-import { InlineLink } from "../../components/InlineLink";
-import { Page } from "../../components/Page";
-import { PageContent } from "../../components/PageContent";
-import { PageHeader } from "../../components/PageHeader";
-import { Paragraph } from "../../components/Paragraph";
+import {
+    Page,
+    PageHeader,
+    PageContent,
+    Paragraph,
+    InlineLink,
+} from "@components";
 
 export const GettingStarted = () => {
     return (
@@ -22,3 +24,5 @@ export const GettingStarted = () => {
         </Page>
     );
 };
+
+export default GettingStarted;

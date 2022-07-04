@@ -5,29 +5,108 @@ import React, {
     useRef,
     useState,
 } from "react";
-import * as monaco from "monaco-editor";
 import { TerminalOutput } from "./TerminalOutput";
 import { Highlight } from "./Highlight";
-import hljs from "highlight.js";
+import hljs from "highlight.js/es/core";
+import { useConst } from "@lib";
+import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
+
+type CodeEditorProps = {
+    defaultContents: string;
+    fullHeight?: boolean;
+    onChange?(contents: string): void;
+};
+
+const CodeEditor = ({
+    defaultContents,
+    fullHeight,
+    onChange,
+}: CodeEditorProps) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const initialHeight = fullHeight ? 160 : 0;
+    const [height, setHeight] = useState(initialHeight);
+
+    useEffect(() => {
+        if (!containerRef.current) return;
+
+        const editor = monaco.editor.create(containerRef.current, {
+            value: defaultContents,
+            language: "javascript",
+            theme: "vs-dark",
+            lineNumbers: "on",
+            readOnly: false,
+            automaticLayout: true,
+            scrollBeyondLastLine: false,
+            scrollbar: {
+                alwaysConsumeMouseWheel: false,
+            },
+        });
+
+        const _initialHeight = initialHeight || editor.getContentHeight();
+        let pHeight = _initialHeight;
+        let hasChangedModelContent = false;
+        setHeight(_initialHeight);
+
+        editor.onDidChangeModelContent((e) => {
+            hasChangedModelContent = true;
+        });
+
+        editor.onDidContentSizeChange((e) => {
+            const heightDifference = e.contentHeight - pHeight;
+            pHeight = e.contentHeight;
+            if (
+                !hasChangedModelContent ||
+                heightDifference === 0 ||
+                height === 160
+            )
+                return;
+            if (containerRef.current?.style.height !== "160px")
+                editor.setScrollTop(0);
+            setHeight(160);
+        });
+
+        const getContents = () =>
+            editor.getModel()?.getLinesContent().join("\n") || "";
+
+        if (onChange) {
+            editor.onDidChangeModelContent(() => onChange(getContents()));
+            onChange(getContents());
+        }
+
+        return () => editor.dispose();
+    }, [containerRef.current, onChange]);
+
+    return (
+        <div
+            ref={containerRef}
+            className="max-h-40"
+            style={{ height: `${height}px` }}
+        ></div>
+    );
+};
 
 type CodeProps = {
     children: string[] | string;
     hideOutput?: boolean;
     noEditor?: boolean;
+    onChange?: (contents: string) => void;
+    fullHeight?: boolean;
 };
 
-export const Code = ({ children, hideOutput, noEditor }: CodeProps) => {
-    const containerRef = useRef<HTMLDivElement>(null);
+export const Code = ({
+    children,
+    hideOutput,
+    noEditor,
+    onChange,
+    fullHeight,
+}: CodeProps) => {
     const codeRef = useRef<HTMLElement>(null);
-    const defaultContents = useMemo(
-        () =>
-            typeof children === "string"
-                ? children.trim()
-                : children.join("").trim(),
-        [children]
+    const defaultContents = useConst(() =>
+        typeof children === "string"
+            ? children.trim()
+            : children.join("").trim()
     );
     const [codeInnerHTML, setCodeInnerHTML] = useState("");
-    const [height, setHeight] = useState(0);
     const [output, setOutput] = useState<string[]>([]);
 
     const evaluateOutput = useCallback(
@@ -63,68 +142,40 @@ export const Code = ({ children, hideOutput, noEditor }: CodeProps) => {
         evaluateOutput(defaultContents);
     }, [noEditor, codeRef.current]);
 
-    useEffect(() => {
-        if (noEditor || !containerRef.current) return;
+    const _onChange = useCallback(
+        (contents: string) => {
+            if (onChange) {
+                onChange(contents);
+            }
 
-        const editor = monaco.editor.create(containerRef.current, {
-            value: defaultContents,
-            language: "javascript",
-            theme: "vs-dark",
-            lineNumbers: "on",
-            readOnly: false,
-            automaticLayout: true,
-            scrollBeyondLastLine: false,
-            scrollbar: {
-                alwaysConsumeMouseWheel: false,
-            },
-        });
+            if (!hideOutput) {
+                evaluateOutput(contents);
+            }
+        },
+        [hideOutput, onChange]
+    );
 
-        const initialHeight = editor.getContentHeight();
-        let pHeight = initialHeight;
-        let hasChangedModelContent = false;
-        setHeight(initialHeight);
-
-        editor.onDidChangeModelContent((e) => {
-            hasChangedModelContent = true;
-        });
-
-        editor.onDidContentSizeChange((e) => {
-            const heightDifference = e.contentHeight - pHeight;
-            pHeight = e.contentHeight;
-            if (!hasChangedModelContent || heightDifference === 0) return;
-            if (containerRef.current?.style.height !== "160px")
-                editor.setScrollTop(0);
-            setHeight(160);
-        });
-
-        if (!hideOutput) {
-            const onChange = () => {
-                evaluateOutput(editor.getModel()?.getLinesContent().join("\n"));
-            };
-
-            editor.onDidChangeModelContent(onChange);
-
-            onChange();
-        }
-
-        return () => editor.dispose();
-    }, [noEditor, containerRef.current]);
-
-    return (
-        <>
-            {(noEditor && (
+    const codeElement = useMemo(
+        () =>
+            (noEditor && (
                 <code
                     ref={codeRef}
                     className="block whitespace-pre hljs language-javascript"
                     dangerouslySetInnerHTML={{ __html: codeInnerHTML }}
                 />
             )) || (
-                <div
-                    ref={containerRef}
-                    className="max-h-40"
-                    style={{ height: `${height}px` }}
-                ></div>
-            )}
+                <CodeEditor
+                    defaultContents={defaultContents}
+                    fullHeight={fullHeight}
+                    onChange={_onChange}
+                />
+            ),
+        [noEditor, codeInnerHTML]
+    );
+
+    return (
+        <>
+            {codeElement}
             {!hideOutput && output.length > 0 && (
                 <>
                     <Highlight>Output</Highlight>:

@@ -16,3 +16,5 @@ export const NavLink = (props: LinkProps) => {
         />
     );
 };
+
+export default NavLink;

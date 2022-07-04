@@ -1,6 +1,5 @@
 import React from "react";
-import { LinkProps } from "react-router-dom";
-import { Link } from "./Link";
+import { Link, LinkProps } from "./Link";
 
 type InlineLinkProps = LinkProps & {
     external?: boolean;

@@ -16,7 +16,7 @@ const assign = (
     </>
 );
 
-const constantVariable = (
+const constant = (
     <>
         <Paragraph>A container of something that cannot be changed.</Paragraph>
         <Paragraph>
@@ -25,6 +25,8 @@ const constantVariable = (
         </Paragraph>
     </>
 );
+
+const constantVariable = constant;
 
 const define = (
     <>
@@ -167,6 +169,7 @@ const variables = variable;
 
 export const dictionary = {
     assign,
+    constant,
     "constant variable": constantVariable,
     define,
     expression,

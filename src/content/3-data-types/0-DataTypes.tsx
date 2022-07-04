@@ -1,12 +1,14 @@
 import React from "react";
-import { Code } from "../../components/Code";
-import { Highlight } from "../../components/Highlight";
-import { InlineCode } from "../../components/InlineCode";
-import { InlineLink } from "../../components/InlineLink";
-import { Page } from "../../components/Page";
-import { PageContent } from "../../components/PageContent";
-import { PageHeader } from "../../components/PageHeader";
-import { Paragraph } from "../../components/Paragraph";
+import {
+    Page,
+    PageHeader,
+    PageContent,
+    Paragraph,
+    InlineCode,
+    Code,
+    InlineLink,
+    Highlight,
+} from "@components";
 
 export const DataTypes = () => (
     <Page>
@@ -54,3 +56,5 @@ export const DataTypes = () => (
         </PageContent>
     </Page>
 );
+
+export default DataTypes;

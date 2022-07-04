@@ -1,11 +1,13 @@
 import React from "react";
-import { Highlight } from "../../components/Highlight";
-import { InlineLink } from "../../components/InlineLink";
-import { Page } from "../../components/Page";
-import { PageContent } from "../../components/PageContent";
-import { PageHeader } from "../../components/PageHeader";
-import { Paragraph } from "../../components/Paragraph";
-import { TerminalCommand } from "../../components/TerminalCommand";
+import {
+    Page,
+    PageHeader,
+    PageContent,
+    Paragraph,
+    TerminalCommand,
+    InlineLink,
+    Highlight,
+} from "@components";
 
 export const InitialFiles = () => (
     <Page>
@@ -65,3 +67,5 @@ export const InitialFiles = () => (
         </PageContent>
     </Page>
 );
+
+export default InitialFiles;

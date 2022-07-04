@@ -1,15 +1,11 @@
 import React from "react";
-import { Code } from "../../components/Code";
-import { Highlight } from "../../components/Highlight";
-import { InlineCode } from "../../components/InlineCode";
-import { Page } from "../../components/Page";
-import { PageHeader } from "../../components/PageHeader";
-import { PageSectionHeader } from "../../components/PageSectionHeader";
-import { Paragraph } from "../../components/Paragraph";
+import { Page, PageHeader, Paragraph } from "@components";
 
-export const For = () => (
+export const ForLoop = () => (
     <Page>
-        <PageHeader>Control Structures - For</PageHeader>
+        <PageHeader>Control Structures - For Loop</PageHeader>
         <Paragraph>Under construction.</Paragraph>
     </Page>
 );
+
+export default ForLoop;

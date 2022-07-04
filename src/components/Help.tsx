@@ -20,7 +20,7 @@ export const Help = ({ className, children }: HelpProps) => {
     }, [onClickOutside]);
 
     return (
-        <div className="relative inline-flex align-center ml-5">
+        <div className="absolute inline-flex align-center ml-auto z-50 right-0">
             <div
                 className={`${className} ${
                     isOpen ? "bg-zinc-700" : "bg-zinc-300"
