@@ -9,7 +9,7 @@ import { TerminalOutput } from "./TerminalOutput";
 import { Highlight } from "./Highlight";
 import hljs from "highlight.js/es/core";
 import { useConst } from "@lib";
-import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
+import * as monaco from "monaco-editor";
 
 type CodeEditorProps = {
     defaultContents: string;

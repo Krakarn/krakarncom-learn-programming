@@ -27,7 +27,7 @@ export default defineConfig({
                 manualChunks: {
                     app: ['./src/index.html'],
                     highlightjs: ['highlight.js/lib/core', 'highlight.js/lib/languages/javascript'],
-                    monacoEditor: ['monaco-editor/esm/vs/editor/editor.api'],
+                    monacoEditor: ['monaco-editor'],
                     tsWorker: ['monaco-editor/esm/vs/language/typescript/ts.worker'],
                     editorWorker: ['monaco-editor/esm/vs/editor/editor.worker'],
                 }
